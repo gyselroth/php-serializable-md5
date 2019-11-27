@@ -14,7 +14,7 @@
 #include "ext/standard/md5.h"
 
 #define PHP_SMD5_EXTNAME	"smd5"
-#define PHP_SMD5_VERSION	PHP_VERSION
+#define PHP_SMD5_VERSION	"1.0.0"
 
 #define L64 INT64_C
 

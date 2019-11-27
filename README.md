@@ -1,8 +1,8 @@
 # Serializable MD5 HashContext
-[![Build Status](https://travis-ci.org/gyselroth/php-serializbale-md5.svg)](https://travis-ci.org/gyselroth/php-serializbale-md5)
+[![Build Status](https://travis-ci.org/gyselroth/php-serializable-md5.svg)](https://travis-ci.org/gyselroth/php-serializable-md5)
 [![Coverage Status](https://coveralls.io/repos/github/gyselroth/php-serializable-md5/badge.svg?branch=master)](https://coveralls.io/github/gyselroth/php-serializable-md5?branch=master)
 [![GitHub release](https://img.shields.io/github/release/gyselroth/php-serializable-md5.svg)](https://github.com/gyselroth/php-serializable-md5/releases)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/gyselroth/php-serializbale-md5/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/gyselroth/php-serializable-md5/master/LICENSE)
 
 The smd5 extension brings serializable MD5 context to userland PHP.
 It differs from the core extension ext/hash|standard/md5 in that way that it is completely serializable and unserializable.
