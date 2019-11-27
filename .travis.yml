@@ -4,13 +4,13 @@ dist: xenial
 before_install:
   - pip install --user cpp-coveralls
 
-os:
-- linux
-- windows
-
 jobs:
   include:
-    - stage: Smoke Testing
+    - stage: Test
+      php: 7.3
+      os:
+      - windows
+    - stage: Test
       php: 7.3
     - stage: Test
       php: 7.0
