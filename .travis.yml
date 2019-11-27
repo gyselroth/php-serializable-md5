@@ -8,16 +8,6 @@ jobs:
   include:
     - stage: Test
       php: 7.3
-      os:
-      - windows
-    - stage: Test
-      php: 7.3
-    - stage: Test
-      php: 7.0
-    - stage: Test
-      php: 7.1
-    - stage: Test
-      php: 7.2
     - stage: Test
       php: 7.4snapshot
 

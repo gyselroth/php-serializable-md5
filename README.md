@@ -10,7 +10,7 @@ It differs from the core extension ext/hash|standard/md5 in that way that it is 
 ## Requirements
 
 Runtime requirements:
-* PHP version >= 7.0
+* PHP version >= 7.3
 
 Tools required for installation:
 * PHP Dev tools
