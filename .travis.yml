@@ -1,0 +1,31 @@
+language: php
+dist: xenial
+
+os:
+- linux
+- windows
+
+jobs:
+  include:
+    - stage: Smoke Testing
+      php: 7.3
+    - stage: Test
+      php: 7.0
+    - stage: Test
+      php: 7.1
+    - stage: Test
+      php: 7.2
+    - stage: Test
+      php: 7.4snapshot
+
+before_script:
+  - phpize
+  - ./configure
+  - make all -j4
+  - make install
+
+script:
+  - make test
+
+after_success:
+  - make coveralls

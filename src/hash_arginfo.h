@@ -1,0 +1,25 @@
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_md5_init, 0, 1, MD5Context, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_md5_update, 0, 2, _IS_BOOL, 0)
+	ZEND_ARG_OBJ_INFO(0, context, MD5Context, 0)
+	ZEND_ARG_TYPE_INFO(0, data, IS_STRING, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_md5_update_stream, 0, 2, IS_LONG, 0)
+	ZEND_ARG_OBJ_INFO(0, context, MD5Context, 0)
+	ZEND_ARG_INFO(0, handle)
+	ZEND_ARG_TYPE_INFO(0, length, IS_LONG, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_md5_final, 0, 1, IS_STRING, 0)
+	ZEND_ARG_OBJ_INFO(0, context, MD5Context, 0)
+	ZEND_ARG_TYPE_INFO(0, raw_output, _IS_BOOL, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_md5_copy, 0, 1, MD5Context, 0)
+	ZEND_ARG_OBJ_INFO(0, context, MD5Context, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_class_MD5Context___construct, 0, 0, 0)
+ZEND_END_ARG_INFO()
