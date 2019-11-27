@@ -65,7 +65,7 @@ var_dump($hash);
 
 ## Why is this a c extension?
 
-I have implemented this in userland PHP, see my gist [here](https://gist.github.com/raffis/3362374991ed1493abd5ebcc3d465cf0#file-php).
+I have implemented this in userland PHP, see the gist [here](https://gist.github.com/raffis/3362374991ed1493abd5ebcc3d465cf0#file-php).
 The problem is calculating an md5 hash with php takes ages, even with PHP7.4 and JIT it takes more than 20s for a 2MB string.
 
 ## Risks
