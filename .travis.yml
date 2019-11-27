@@ -1,6 +1,9 @@
 language: php
 dist: xenial
 
+before_install:
+  - pip install --user cpp-coveralls
+
 os:
 - linux
 - windows
@@ -23,6 +26,7 @@ before_script:
   - ./configure
   - make all -j4
   - make install
+  - echo "extension=smd5.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 
 script:
   - make test
