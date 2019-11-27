@@ -11,7 +11,6 @@
  */
 
 #include "php_hash.h"
-#include "php_hash_md.h"
 
 const php_hash_ops php_hash_md5_ops = {
 	16,
