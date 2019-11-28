@@ -41,9 +41,9 @@ For example over multiple http requests or pause/continue.
 This extension exposes 4 new methods to PHP which work similar to the well known hash methods.
 
 * Initialize MD5Context `md5_init(): MD5Context`
-* Update MD5Context from string `md5_update(MD5Context $ctx, string $data): void`
-* Update MD5Context from stream `md5_update_stream(MD5Context $ctx, resource $stream): void`
-* Finalize MD5 Hash `md5_final(MD5Context $ctx): string`
+* Update MD5Context from string `md5_update(MD5Context $ctx, string $data): bool (Returns true)`
+* Update MD5Context from stream `md5_update_stream(MD5Context $ctx, resource $stream, int $length=-1): int (Number of bytes read from stream)`
+* Finalize MD5 Hash `md5_final(MD5Context $ctx): string (Returns the MD5 string)`
 
 ## Example
 

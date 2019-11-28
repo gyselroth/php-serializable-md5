@@ -251,6 +251,8 @@ static PHP_METHOD(MD5Context, __sleep) {
 	zsmd5 = getThis();
 	smd5 = php_smd5context_from_object(Z_OBJ_P(zsmd5));
 
+    PHP_SMD5CONTEXT_VERIFY("__sleep", smd5);
+
 	if(strlen(smd5->context->buffer) != 0) {
 		zend_throw_exception(spl_ce_RuntimeException, "Can not serialize buffer. Pump data with a multiple of 64bytes", 0);
 	}
