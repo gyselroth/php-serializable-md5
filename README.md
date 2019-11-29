@@ -1,6 +1,5 @@
 # Serializable MD5 HashContext
 [![Build Status](https://travis-ci.org/gyselroth/php-serializable-md5.svg)](https://travis-ci.org/gyselroth/php-serializable-md5)
-[![Coverage Status](https://coveralls.io/repos/github/gyselroth/php-serializable-md5/badge.svg?branch=master)](https://coveralls.io/github/gyselroth/php-serializable-md5?branch=master)
 [![GitHub release](https://img.shields.io/github/release/gyselroth/php-serializable-md5.svg)](https://github.com/gyselroth/php-serializable-md5/releases)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/gyselroth/php-serializable-md5/master/LICENSE)
 
@@ -59,8 +58,8 @@ md5_update($ctx, " foobar");
 
 $hash = md5_final($new);
 var_dump($hash);
-//Will print the correct MD5 hash of `hi foobar`
-//string(32) "76205057a39fb5ef7ca2cd8f3a669dbc"
+//Will print the correct MD5 hash:
+//string(32) "49d68437b1ffb0db3fdf2d4a930be971"
 ```
 
 ## Serialization
