@@ -287,6 +287,10 @@ static PHP_METHOD(MD5Context, __wakeup) {
 	ops = php_smd5_fetch_ops("md5", 3);
 
 	context = emalloc(ops->context_size);
+
+    //clear memory block since we may have buffered date in context->buffer
+    memset(context, 0, ops->context_size);
+
 	PHP_MD5Init(context);
 
 	smd5->ops = ops;

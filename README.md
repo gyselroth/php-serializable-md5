@@ -49,7 +49,7 @@ This extension exposes 4 new methods to PHP which work similar to the well known
 
 ```php
 $ctx = md5_init();
-md5_update($ctx, "hi");
+md5_update($ctx, "foobarfoobarfoobarfoobarfoobarfoobarfoobarfoobarfoobarfoobarfoob");
 
 $dump = serialize($ctx);
 //$dump can now safely be stored somewhere and be reused at a later time
@@ -62,6 +62,16 @@ var_dump($hash);
 //Will print the correct MD5 hash of `hi foobar`
 //string(32) "76205057a39fb5ef7ca2cd8f3a669dbc"
 ```
+
+## Serialization
+You are only allowed to serialize the MD5Context if there is no data in the internal buffer.
+This means you can only call `serialize()` if you add data to the context with a multiplication of 64bytes!
+This is due security reason that no buffered data gets exposed.
+
+You can still pump less data but then you may not use `serialize()` and end up with a `\RuntimeException`.
+Usually your last update call may contain less data, this is fine because you should finalize the hash anyway and there is no 
+reason to serialize the context.
+
 
 ## Why is this a c extension?
 
