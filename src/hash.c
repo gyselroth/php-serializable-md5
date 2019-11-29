@@ -81,14 +81,11 @@ static inline void php_smd5_string_xor(unsigned char *out, const unsigned char *
 	}
 }
 
-/* {{{ proto MD5Context md5_init(string algo[, int options, string key])
+/* {{{ proto MD5Context md5_init()
 Initialize a smd5ing context */
 PHP_FUNCTION(md5_init)
 {
-	zend_string *algo, *key = NULL;
-	zend_long options = 0;
-	int argc = ZEND_NUM_ARGS();
-	void *context;
+	PHP_MD5_CTX *context;
 	const php_smd5_ops *ops;
 	php_smd5context_object *smd5;
 
@@ -97,12 +94,14 @@ PHP_FUNCTION(md5_init)
 	smd5 = php_smd5context_from_object(Z_OBJ_P(return_value));
 
 	context = emalloc(ops->context_size);
+
+    //clear memory block since we may have buffered date in context->buffer
+    memset(context, 0, ops->context_size);
+
 	PHP_MD5Init(context);
 
 	smd5->ops = ops;
 	smd5->context = context;
-	smd5->options = options;
-	smd5->key = NULL;
 }
 /* }}} */
 
@@ -279,7 +278,6 @@ static PHP_METHOD(MD5Context, __wakeup) {
 	zval *zsmd5;
 	php_smd5context_object *smd5;
 
-	zend_long options = 0;
 	void *context;
 	const php_smd5_ops *ops;
 
@@ -293,8 +291,6 @@ static PHP_METHOD(MD5Context, __wakeup) {
 
 	smd5->ops = ops;
 	smd5->context = context;
-	smd5->options = options;
-	smd5->key = NULL;
 
 	zval *value;
 	value = zend_read_property(php_smd5context_ce, zsmd5, ZEND_STRL("a"), 1, 1 TSRMLS_CC);
@@ -363,7 +359,6 @@ static zend_object *php_smd5context_clone(zend_object *zobj) {
 	zend_objects_clone_members(znew, zobj);
 
 	newobj->ops = oldobj->ops;
-	newobj->options = oldobj->options;
 	newobj->context = emalloc(newobj->ops->context_size);
 	PHP_MD5Init(newobj->context);
 
